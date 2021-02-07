@@ -1,11 +1,14 @@
 const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const cTable = require("console.table");
+
 const { viewDept, viewRole, viewEmployee } = require("./lib/views");
 const { addDept, addRole, addEmployee } = require("./lib/adds");
 const updateEmployee = require("./lib/update");
+
 require("dotenv").config({ path: __dirname + "/.env" });
 
+let runAgain = true;
 // create the connection to database
 const connection = mysql.createConnection({
   host: process.env.host,
@@ -36,32 +39,25 @@ const question = {
   ],
 };
 
-function initApp() {
+const initApp = function () {
   inquirer.prompt(question).then((answer) => {
     switch (answer.choice) {
       case "View All Departments":
-        viewDept(connection);
-        break;
+        return viewDept(connection);
       case "View All Roles":
-        viewRole(connection);
-        break;
+        return viewRole(connection);
       case "View All Employees":
-        viewEmployee(connection);
-        break;
+        return viewEmployee(connection);
       case "Add a Department":
         return addDept(connection);
-
       case "Add a Role":
         return addRole(connection);
-
       case "Add an Employee":
         return addEmployee(connection);
-
       case "Update an Employee Role":
         return updateEmployee(connection);
       case "Exit":
         process.exit();
     }
-    initApp();
   });
-}
+};
