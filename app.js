@@ -43,19 +43,19 @@ const initApp = function () {
   inquirer.prompt(question).then((answer) => {
     switch (answer.choice) {
       case "View All Departments":
-        return viewDept(connection);
+        return viewDept(connection, initApp);
       case "View All Roles":
-        return viewRole(connection);
+        return viewRole(connection, initApp);
       case "View All Employees":
-        return viewEmployee(connection);
+        return viewEmployee(connection, initApp);
       case "Add a Department":
-        return addDept(connection);
+        return addDept(connection, initApp);
       case "Add a Role":
-        return addRole(connection);
+        return addRole(connection, initApp);
       case "Add an Employee":
-        return addEmployee(connection);
+        return addEmployee(connection, initApp);
       case "Update an Employee Role":
-        return updateEmployee(connection);
+        return updateEmployee(connection, initApp);
       case "Exit":
         process.exit();
     }

@@ -34,7 +34,7 @@ Here you can see the different commands to run to navigate into the parent direc
 ![Image of terminal showing the commands to start the application](./assets/images/startProgram.png)
 
 To watch a video of this application being used follow this link:
-[README Generator Video](https://drive.google.com/file/d/1kkzN_19Ofx_6qMnRPI-Tou6m80aqZVgY/view)
+[README Generator Video](https://drive.google.com/file/d/13lZjbQdzt-uxqlAecuDaQXWZXATN_3VO/view)
 
 ## Questions
 
